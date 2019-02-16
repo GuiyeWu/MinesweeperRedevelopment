@@ -1,0 +1,79 @@
+\section{Animation::Animation Class Reference}
+\label{classAnimation_1_1Animation}\index{Animation::Animation@{Animation::Animation}}
+An set up for the win/lose animation.  
+
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+def \bf{\_\-\_\-init\_\-\_\-}
+\begin{CompactList}\small\item\em animation constructor \item\end{CompactList}\item 
+def \bf{win}
+\begin{CompactList}\small\item\em win animation setup \item\end{CompactList}\item 
+def \bf{loose}
+\begin{CompactList}\small\item\em lose animation setup \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\textbf{rainloose}\label{classAnimation_1_1Animation_f354ed428beb7b7c9de51ce4ca8d2c54}
+
+\item 
+\textbf{rainwin}\label{classAnimation_1_1Animation_cb2a6160f4d5dfa08d938a391e8225c7}
+
+\item 
+\textbf{backgroundwin}\label{classAnimation_1_1Animation_372ab62ca4fcfe785821525913d763ab}
+
+\item 
+\textbf{backgroundloose}\label{classAnimation_1_1Animation_0ebb0e722b3b76813c9f583a852a6995}
+
+\item 
+\textbf{rain\_\-list}\label{classAnimation_1_1Animation_e57c249c25781ed878b1f3bafdf7eda6}
+
+\item 
+\textbf{clock}\label{classAnimation_1_1Animation_15d0136cbc20ce60dec4127b3005eab1}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+An set up for the win/lose animation. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Animation::Animation@{Animation::Animation}!__init__@{\_\-\_\-init\_\-\_\-}}
+\index{__init__@{\_\-\_\-init\_\-\_\-}!Animation::Animation@{Animation::Animation}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Animation::Animation::\_\-\_\-init\_\-\_\- ( {\em self})}\label{classAnimation_1_1Animation_50be6f86ee2df0720b082f7a08674b94}
+
+
+animation constructor 
+
+setup the background pictures, the dynamic animation pictures, transfer them into proper size, with win/lose, respectively. Then assign the win/lose animation pictures randomly among the blocks of the boad. \index{Animation::Animation@{Animation::Animation}!loose@{loose}}
+\index{loose@{loose}!Animation::Animation@{Animation::Animation}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Animation::Animation::loose ( {\em self},  {\em screen})}\label{classAnimation_1_1Animation_c467c93c490f544f7dd68dd4f6172fe5}
+
+
+lose animation setup 
+
+randomly appen the number of the animation pictures into the board, then make the rain animation \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em screen}]assign the lose animation to the screen on which it is needed \end{description}
+\end{Desc}
+\index{Animation::Animation@{Animation::Animation}!win@{win}}
+\index{win@{win}!Animation::Animation@{Animation::Animation}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Animation::Animation::win ( {\em self},  {\em screen})}\label{classAnimation_1_1Animation_a893034f438e53a7686a424ab27e94ce}
+
+
+win animation setup 
+
+randomly appen the number of the animation pictures into the board, then make the rain animation \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em screen}]assign the winning animation to the screen on which it is needed \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\bf{Animation.py}\end{CompactItemize}

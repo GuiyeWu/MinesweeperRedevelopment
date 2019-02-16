@@ -1,0 +1,113 @@
+\section{Minesweeper::Minesweeper Class Reference}
+\label{classMinesweeper_1_1Minesweeper}\index{Minesweeper::Minesweeper@{Minesweeper::Minesweeper}}
+The play borad and setup of the minesweeper game.  
+
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+def \bf{\_\-\_\-init\_\-\_\-}
+\begin{CompactList}\small\item\em initiate the settings of the play borad \item\end{CompactList}\item 
+def \bf{on\_\-init}
+\begin{CompactList}\small\item\em initiate the board \item\end{CompactList}\item 
+def \bf{on\_\-event}
+\begin{CompactList}\small\item\em the operations while the game is running \item\end{CompactList}\item 
+def \bf{on\_\-cleanup}
+\begin{CompactList}\small\item\em Clean up the game. \item\end{CompactList}\item 
+def \bf{on\_\-execute}
+\begin{CompactList}\small\item\em Operations while playing. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\textbf{Mines\-Counter}\label{classMinesweeper_1_1Minesweeper_64819d68065c693c148d02ab06de578f}
+
+\item 
+\textbf{Time}\label{classMinesweeper_1_1Minesweeper_524341d9d2976f44d0bc0d72d4b16764}
+
+\item 
+\textbf{Animation}\label{classMinesweeper_1_1Minesweeper_bf2ff9f6042c9082e3c2bb2cd5904251}
+
+\item 
+\textbf{running}\label{classMinesweeper_1_1Minesweeper_33b669be9c6b640fcddc046e0fb6f71a}
+
+\item 
+\textbf{running\-Background}\label{classMinesweeper_1_1Minesweeper_c7603d4ca7e0f271ef423e50da49c336}
+
+\item 
+\textbf{ROWS}\label{classMinesweeper_1_1Minesweeper_675108718fee9b7d625da713f81da4e5}
+
+\item 
+\textbf{COLS}\label{classMinesweeper_1_1Minesweeper_faeba00555703ccefc904e5752b89c5c}
+
+\item 
+\textbf{NUMBOMBS}\label{classMinesweeper_1_1Minesweeper_4c96b8949c772bd7e5f5b1948400615b}
+
+\item 
+\textbf{WIDTH}\label{classMinesweeper_1_1Minesweeper_8ed44c551c1ce100fd6ee7247ce4bc34}
+
+\item 
+\textbf{HIGHT}\label{classMinesweeper_1_1Minesweeper_8e4952f93d2214bebda4b812efdd55d1}
+
+\item 
+\textbf{ML}\label{classMinesweeper_1_1Minesweeper_b141431ab778debf665a48116881fab8}
+
+\item 
+\textbf{MR}\label{classMinesweeper_1_1Minesweeper_609fead17425ea31fdb085b472283dee}
+
+\item 
+\textbf{board}\label{classMinesweeper_1_1Minesweeper_87fcc6c15a08f54e5d31901bf0749fea}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The play borad and setup of the minesweeper game. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Minesweeper::Minesweeper@{Minesweeper::Minesweeper}!__init__@{\_\-\_\-init\_\-\_\-}}
+\index{__init__@{\_\-\_\-init\_\-\_\-}!Minesweeper::Minesweeper@{Minesweeper::Minesweeper}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Minesweeper::Minesweeper::\_\-\_\-init\_\-\_\- ( {\em self})}\label{classMinesweeper_1_1Minesweeper_48b7f8a4d250d776033053c86a521c50}
+
+
+initiate the settings of the play borad 
+
+initiate all the essential parts that should be displayed on the playing borad, including minescounter, timer, animation and the cells. Then preset the values of the length and width of the gaming screen, the playing board, and number of cells, number of bombs, in defferent levels, respectively. Then running the initial setup level screen, and manipulate that direct the user to choose different levels to play, by setting the size of the level selection block, position of the block and what will be the next step after click on the different levels, respectively. \index{Minesweeper::Minesweeper@{Minesweeper::Minesweeper}!on_cleanup@{on\_\-cleanup}}
+\index{on_cleanup@{on\_\-cleanup}!Minesweeper::Minesweeper@{Minesweeper::Minesweeper}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Minesweeper::Minesweeper::on\_\-cleanup ( {\em self})}\label{classMinesweeper_1_1Minesweeper_9a68b5ef853890ab090bde3a10d324cf}
+
+
+Clean up the game. 
+
+quit the gameboard while it is called. \index{Minesweeper::Minesweeper@{Minesweeper::Minesweeper}!on_event@{on\_\-event}}
+\index{on_event@{on\_\-event}!Minesweeper::Minesweeper@{Minesweeper::Minesweeper}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Minesweeper::Minesweeper::on\_\-event ( {\em self},  {\em event})}\label{classMinesweeper_1_1Minesweeper_802d309ec85e8b78c62f91773b944739}
+
+
+the operations while the game is running 
+
+when the game is not running, the screen is closed. When the board is running, the essential operations begin. There are three kinds of licks, left click, right click and left\&right click. When left click, right click and the left\&right click is inputted, the click collide with the block then the matching functions on board module is called, respectively. If the click is on the block, the sound animation will also compile. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event}]the pygame event mode \end{description}
+\end{Desc}
+\index{Minesweeper::Minesweeper@{Minesweeper::Minesweeper}!on_execute@{on\_\-execute}}
+\index{on_execute@{on\_\-execute}!Minesweeper::Minesweeper@{Minesweeper::Minesweeper}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Minesweeper::Minesweeper::on\_\-execute ( {\em self})}\label{classMinesweeper_1_1Minesweeper_ec92f8bd8622d9e9c4fe9b1354d90c24}
+
+
+Operations while playing. 
+
+after the initation the game is running. The different board shows up based on different situations. When winning, the board display the winning animation. When lose, the board display the lose animation and while running, the board should display the timer and running the event function. \index{Minesweeper::Minesweeper@{Minesweeper::Minesweeper}!on_init@{on\_\-init}}
+\index{on_init@{on\_\-init}!Minesweeper::Minesweeper@{Minesweeper::Minesweeper}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Minesweeper::Minesweeper::on\_\-init ( {\em self})}\label{classMinesweeper_1_1Minesweeper_b5e438adee984b865c7a662ca2a5028a}
+
+
+initiate the board 
+
+initiate the game board and refresh the cells the the right manner. 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\bf{Minesweeper.py}\end{CompactItemize}

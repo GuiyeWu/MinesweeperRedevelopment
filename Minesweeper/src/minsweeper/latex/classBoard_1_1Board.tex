@@ -1,0 +1,214 @@
+\section{Board::Board Class Reference}
+\label{classBoard_1_1Board}\index{Board::Board@{Board::Board}}
+The settings and operations on the board.  
+
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+def \bf{\_\-\_\-init\_\-\_\-}
+\begin{CompactList}\small\item\em initiate the board \item\end{CompactList}\item 
+def \bf{refresh\-Cells}
+\begin{CompactList}\small\item\em refresh the cell \item\end{CompactList}\item 
+def \bf{get\-Num\-Bomb\-Neighbors}
+\begin{CompactList}\small\item\em get the number of neighboring bombs \item\end{CompactList}\item 
+def \bf{right\-Click}
+\begin{CompactList}\small\item\em set the behavior of right click \item\end{CompactList}\item 
+def \bf{left\-Click}
+\begin{CompactList}\small\item\em set the behavior of left click \item\end{CompactList}\item 
+def \bf{unlock\-Neighbors}
+\begin{CompactList}\small\item\em unlock the neighboring cells \item\end{CompactList}\item 
+def \bf{is\-Cell}
+\begin{CompactList}\small\item\em return the row number and column number of the cell \item\end{CompactList}\item 
+def \bf{right\-And\-Left\-Click}
+\begin{CompactList}\small\item\em set the behavior when right and left click \item\end{CompactList}\item 
+def \bf{get\-Num\-Flag\-Neighbors}
+\begin{CompactList}\small\item\em get the number of flagged neighbors \item\end{CompactList}\item 
+def \bf{depress\-Neighbors}
+\begin{CompactList}\small\item\em depress the neighbors \item\end{CompactList}\item 
+def \bf{win\-Game}
+\begin{CompactList}\small\item\em transfer the reset button to the smile face \item\end{CompactList}\item 
+def \bf{loose\-Game}
+\begin{CompactList}\small\item\em transfer the reset button to the lose face \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\textbf{rs}\label{classBoard_1_1Board_112e9bc53c850f947a51f52d0055bbe0}
+
+\item 
+\textbf{cs}\label{classBoard_1_1Board_145bd51c1b9b2f8373b04d2546fcd682}
+
+\item 
+\textbf{w}\label{classBoard_1_1Board_051e50322711ca2899ff52c309e38b6b}
+
+\item 
+\textbf{h}\label{classBoard_1_1Board_2353c23c489634b641eb261a5c709912}
+
+\item 
+\textbf{n\-Bs}\label{classBoard_1_1Board_1302e3811eceb54083108b7c71359dcf}
+
+\item 
+\textbf{num\-Cells}\label{classBoard_1_1Board_604689b2372b4b1164aa039aab791d6c}
+
+\item 
+\textbf{num\-Cells\-To\-Uncover}\label{classBoard_1_1Board_df5edd6525fba25977caf75a0293aa3e}
+
+\item 
+\textbf{cells}\label{classBoard_1_1Board_e51656863cc4c1d490092c114aa36f7a}
+
+\item 
+\textbf{screen}\label{classBoard_1_1Board_d3d6fa7772fd26c9bdeb9303183adcac}
+
+\item 
+\textbf{win}\label{classBoard_1_1Board_d03d1e221f932194d456a309fa983d14}
+
+\item 
+\textbf{loose}\label{classBoard_1_1Board_b2add398ce04b153ec61db1099008408}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The settings and operations on the board. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Board::Board@{Board::Board}!__init__@{\_\-\_\-init\_\-\_\-}}
+\index{__init__@{\_\-\_\-init\_\-\_\-}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::\_\-\_\-init\_\-\_\- ( {\em self},  {\em rows},  {\em cols},  {\em num\-Bombs},  {\em width},  {\em height})}\label{classBoard_1_1Board_98e0e9c51c8669bb8e2dc5c977524c8e}
+
+
+initiate the board 
+
+set up the size of the board, number of rows and colums, that split the cells in the board, and load each picture that need to be on the board. Then set the inital win/lose state to the board \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em rows}]the number value of the row \item[{\em cols}]the number value of the column \item[{\em num\-Bombs}]the number value of the bombs \item[{\em width}]the width of the cell \item[{\em height}]the height of the cell \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!depressNeighbors@{depressNeighbors}}
+\index{depressNeighbors@{depressNeighbors}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::depress\-Neighbors ( {\em self},  {\em r},  {\em c})}\label{classBoard_1_1Board_6d0deef8c8101277edbd855e7f5f9310}
+
+
+depress the neighbors 
+
+depress the blank neighbors \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]row number of the cell while if it is uncovered, the process will pass that certain cell. \item[{\em j}]column number of the cell \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!getNumBombNeighbors@{getNumBombNeighbors}}
+\index{getNumBombNeighbors@{getNumBombNeighbors}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::get\-Num\-Bomb\-Neighbors ( {\em self},  {\em i},  {\em j})}\label{classBoard_1_1Board_7b7f8d47686b02ed54c31b9dbbdcd53b}
+
+
+get the number of neighboring bombs 
+
+count the number of neighboring bombs from cell to cell \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]the current row number \item[{\em j}]the current cloumn number \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the value of the number of bombs \end{Desc}
+\index{Board::Board@{Board::Board}!getNumFlagNeighbors@{getNumFlagNeighbors}}
+\index{getNumFlagNeighbors@{getNumFlagNeighbors}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::get\-Num\-Flag\-Neighbors ( {\em self},  {\em i},  {\em j})}\label{classBoard_1_1Board_ac4138cfb502078f2dcc1a596f408cb6}
+
+
+get the number of flagged neighbors 
+
+record the numberof flagged neighbors and outpt the number \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]row number of the cell \item[{\em j}]column number of the cell \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the number of flagged neighbors \end{Desc}
+\index{Board::Board@{Board::Board}!isCell@{isCell}}
+\index{isCell@{isCell}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::is\-Cell ( {\em self},  {\em col},  {\em row})}\label{classBoard_1_1Board_ec8ef42706f1a5126698f25fe8f38f9a}
+
+
+return the row number and column number of the cell 
+
+return the row number and column number of the cell \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em row}]row number of the cell \item[{\em col}]column number of the cell \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!leftClick@{leftClick}}
+\index{leftClick@{leftClick}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::left\-Click ( {\em self},  {\em r},  {\em c})}\label{classBoard_1_1Board_8c27d6981748af675b8804da78a94b0f}
+
+
+set the behavior of left click 
+
+set the behavior of the left click, if the cell is covered by the bomb, the game will end when the cell is clicked. If there is not a bomb, then the cell will refresh and to be uncover, and probably show the neighboring cells \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row number of the cell \item[{\em c}]column number of the cell \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!looseGame@{looseGame}}
+\index{looseGame@{looseGame}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::loose\-Game ( {\em self})}\label{classBoard_1_1Board_874d5ba8e85b3981cbb3eabcaf263192}
+
+
+transfer the reset button to the lose face 
+
+transfer the reset button to the lose face and play the lose sound \index{Board::Board@{Board::Board}!refreshCells@{refreshCells}}
+\index{refreshCells@{refreshCells}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::refresh\-Cells ( {\em self})}\label{classBoard_1_1Board_2bebaed9281b5f95a3e0e164361e5041}
+
+
+refresh the cell 
+
+refresh the cell to the matching presets while the cell is clicked. If the cell does not contain the bomb, the chain of neighboring cell will also to be refreshing, until there are bombs nearby. \index{Board::Board@{Board::Board}!rightAndLeftClick@{rightAndLeftClick}}
+\index{rightAndLeftClick@{rightAndLeftClick}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::right\-And\-Left\-Click ( {\em self},  {\em r},  {\em c})}\label{classBoard_1_1Board_57d32ad131dd46505655d88ab8893d1e}
+
+
+set the behavior when right and left click 
+
+if the correct number of bomb is correctly flagged, then the neighboring cells will automatically uncover when left and right click, otherwise the game will lose. When all the cells are uncovered, the game will turn into winning animation \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row number of the cell \item[{\em c}]column number of the cell \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!rightClick@{rightClick}}
+\index{rightClick@{rightClick}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::right\-Click ( {\em self},  {\em r},  {\em c})}\label{classBoard_1_1Board_4e5c8db005467eb4f4bad00f0cc8020f}
+
+
+set the behavior of right click 
+
+set the behavior of the right click, if the cell is unflagged, then do the flag action. If the cell is currently flagged, then do the unflag action \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row number of the cell \item[{\em c}]column number of the cell \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!unlockNeighbors@{unlockNeighbors}}
+\index{unlockNeighbors@{unlockNeighbors}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::unlock\-Neighbors ( {\em self},  {\em current\-Cell})}\label{classBoard_1_1Board_c9aeffd80ce1962d7d8777ae048cb88c}
+
+
+unlock the neighboring cells 
+
+uncover the neighboring cells while there is not a bomb nearby. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em current\-Cell}]the current cell to be clicked \end{description}
+\end{Desc}
+\index{Board::Board@{Board::Board}!winGame@{winGame}}
+\index{winGame@{winGame}!Board::Board@{Board::Board}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Board::Board::win\-Game ( {\em self})}\label{classBoard_1_1Board_3e5789c074e189e3bea8f7c7212467d8}
+
+
+transfer the reset button to the smile face 
+
+transfer the reset button to the smile face and play the winning sound 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+Board.py\end{CompactItemize}

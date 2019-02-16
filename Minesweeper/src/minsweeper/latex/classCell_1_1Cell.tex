@@ -1,0 +1,206 @@
+\section{Cell::Cell Class Reference}
+\label{classCell_1_1Cell}\index{Cell::Cell@{Cell::Cell}}
+Set up the basic operations of the cell.  
+
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+def \bf{\_\-\_\-init\_\-\_\-}
+\begin{CompactList}\small\item\em initiate some variables \item\end{CompactList}\item 
+def \bf{unlock}
+\begin{CompactList}\small\item\em unlock number behavior \item\end{CompactList}\item 
+def \bf{flag}
+\begin{CompactList}\small\item\em set the setting flag behavior \item\end{CompactList}\item 
+def \bf{unflag}
+\begin{CompactList}\small\item\em set the setting unflag behavior \item\end{CompactList}\item 
+def \bf{click\-Explode}
+\begin{CompactList}\small\item\em set the clicking on bomb behavior \item\end{CompactList}\item 
+def \bf{is\-Bomb}
+\begin{CompactList}\small\item\em return a boolean value if this is bomb \item\end{CompactList}\item 
+def \bf{is\-Unlocked}
+\begin{CompactList}\small\item\em return a boolean value if unlocked \item\end{CompactList}\item 
+def \bf{is\-Flagged}
+\begin{CompactList}\small\item\em return a boolean value if isflagged \item\end{CompactList}\item 
+def \bf{get\-Row}
+\begin{CompactList}\small\item\em return the row value \item\end{CompactList}\item 
+def \bf{get\-Col}
+\begin{CompactList}\small\item\em return the column value \item\end{CompactList}\item 
+def \bf{set\-Num\-Bomb\-Neighbors}
+\begin{CompactList}\small\item\em set the neighboring bombs \item\end{CompactList}\item 
+def \bf{set\-Is\-Unlocked}
+\begin{CompactList}\small\item\em set the isunlocked variable to the self variable \item\end{CompactList}\item 
+def \bf{get\-Num\-Bomb\-Neighbors}
+\begin{CompactList}\small\item\em get the number of neighboring bombs \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\textbf{unlocked}\label{classCell_1_1Cell_e3485a4a421992cacee96f3b16b42a94}
+
+\item 
+\textbf{flagged}\label{classCell_1_1Cell_de609245f890339fe8f074059579004f}
+
+\item 
+\textbf{is\-B}\label{classCell_1_1Cell_627c44252d650423cf263b5bd252ec64}
+
+\item 
+\textbf{r}\label{classCell_1_1Cell_7071b22f9ba230820b22e5590f92ad01}
+
+\item 
+\textbf{c}\label{classCell_1_1Cell_5a4ecd9c390caedfe9cab05961682e23}
+
+\item 
+\textbf{n\-BN}\label{classCell_1_1Cell_3b45c62f28d089230c5ec1a87728bbe5}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Set up the basic operations of the cell. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Cell::Cell@{Cell::Cell}!__init__@{\_\-\_\-init\_\-\_\-}}
+\index{__init__@{\_\-\_\-init\_\-\_\-}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::\_\-\_\-init\_\-\_\- ( {\em self},  {\em is\-Bomb},  {\em row},  {\em col})}\label{classCell_1_1Cell_fb50d9e03be9c8ead355cb830774dd59}
+
+
+initiate some variables 
+
+initiate the variables that would be used through the entire class \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em isbomb}]check if ther is bomb, and return the boolean value \item[{\em row}]the variable of row \item[{\em col}]the variable of column \end{description}
+\end{Desc}
+\index{Cell::Cell@{Cell::Cell}!clickExplode@{clickExplode}}
+\index{clickExplode@{clickExplode}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::click\-Explode ( {\em self},  {\em screen},  {\em r},  {\em c},  {\em w},  {\em h})}\label{classCell_1_1Cell_9619239359e0725edb898332130627f7}
+
+
+set the clicking on bomb behavior 
+
+set the clicking on bomb behavior and its picture when click on the cell \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row position \item[{\em c}]column position \item[{\em w}]width of the cell \item[{\em h}]height of the cell \end{description}
+\end{Desc}
+\index{Cell::Cell@{Cell::Cell}!flag@{flag}}
+\index{flag@{flag}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::flag ( {\em self},  {\em screen},  {\em r},  {\em c},  {\em w},  {\em h})}\label{classCell_1_1Cell_addc34fc7d4b845ccbfb51cc27585f4e}
+
+
+set the setting flag behavior 
+
+set the flag behavior and its picture when click on the flag \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row position \item[{\em c}]column position \item[{\em w}]width of the cell \item[{\em h}]height of the cell \end{description}
+\end{Desc}
+\index{Cell::Cell@{Cell::Cell}!getCol@{getCol}}
+\index{getCol@{getCol}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::get\-Col ( {\em self})}\label{classCell_1_1Cell_91fcb977d82b60a965eb4ace2c1e7c1e}
+
+
+return the column value 
+
+return the column value \begin{Desc}
+\item[Returns:]row value \end{Desc}
+\index{Cell::Cell@{Cell::Cell}!getNumBombNeighbors@{getNumBombNeighbors}}
+\index{getNumBombNeighbors@{getNumBombNeighbors}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::get\-Num\-Bomb\-Neighbors ( {\em self})}\label{classCell_1_1Cell_da1dcf9c6cb04f217180003f15ebc6df}
+
+
+get the number of neighboring bombs 
+
+get the number of neighboring bombs \begin{Desc}
+\item[Returns:]number of neighboring bombs \end{Desc}
+\index{Cell::Cell@{Cell::Cell}!getRow@{getRow}}
+\index{getRow@{getRow}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::get\-Row ( {\em self})}\label{classCell_1_1Cell_2bba314fe899afe15df9d030c2977fda}
+
+
+return the row value 
+
+return the row value \begin{Desc}
+\item[Returns:]row value \end{Desc}
+\index{Cell::Cell@{Cell::Cell}!isBomb@{isBomb}}
+\index{isBomb@{isBomb}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::is\-Bomb ( {\em self})}\label{classCell_1_1Cell_aa16af320957adde582767e8cc264567}
+
+
+return a boolean value if this is bomb 
+
+return a boolean value if this is bomb \begin{Desc}
+\item[Returns:]boolean value \end{Desc}
+\index{Cell::Cell@{Cell::Cell}!isFlagged@{isFlagged}}
+\index{isFlagged@{isFlagged}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::is\-Flagged ( {\em self})}\label{classCell_1_1Cell_9a6932090bd703869334081448f7ae16}
+
+
+return a boolean value if isflagged 
+
+return a boolean value if isflagged \begin{Desc}
+\item[Returns:]boolean value \end{Desc}
+\index{Cell::Cell@{Cell::Cell}!isUnlocked@{isUnlocked}}
+\index{isUnlocked@{isUnlocked}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::is\-Unlocked ( {\em self})}\label{classCell_1_1Cell_e8ff6b3c9200cc387da88d45d5070d57}
+
+
+return a boolean value if unlocked 
+
+return a boolean value if unlocked \begin{Desc}
+\item[Returns:]boolean value \end{Desc}
+\index{Cell::Cell@{Cell::Cell}!setIsUnlocked@{setIsUnlocked}}
+\index{setIsUnlocked@{setIsUnlocked}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::set\-Is\-Unlocked ( {\em self},  {\em is\-Unlocked})}\label{classCell_1_1Cell_022bd43ce5b72608fa92ef79ce1d4c28}
+
+
+set the isunlocked variable to the self variable 
+
+set the isunlocked variable to the self variable \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em in\-Unlocked}]is\-Unlocked variable \end{description}
+\end{Desc}
+\index{Cell::Cell@{Cell::Cell}!setNumBombNeighbors@{setNumBombNeighbors}}
+\index{setNumBombNeighbors@{setNumBombNeighbors}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::set\-Num\-Bomb\-Neighbors ( {\em self},  {\em num\-Bomb\-Neighbors})}\label{classCell_1_1Cell_fbcf4f43fd7814340c9ce4707f94f860}
+
+
+set the neighboring bombs 
+
+set the neighboring bombs as the number matching to the cell. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em num\-Bomb\-Neighbors}]the number of the neighboring bombs \end{description}
+\end{Desc}
+\index{Cell::Cell@{Cell::Cell}!unflag@{unflag}}
+\index{unflag@{unflag}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::unflag ( {\em self},  {\em screen},  {\em r},  {\em c},  {\em w},  {\em h})}\label{classCell_1_1Cell_6d2a01eb700e9568c363e9bfa3372fb5}
+
+
+set the setting unflag behavior 
+
+set the unflag behavior and its picture when right-click on the flag \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row position \item[{\em c}]column position \item[{\em w}]width of the cell \item[{\em h}]height of the cell \end{description}
+\end{Desc}
+\index{Cell::Cell@{Cell::Cell}!unlock@{unlock}}
+\index{unlock@{unlock}!Cell::Cell@{Cell::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}def Cell::Cell::unlock ( {\em self},  {\em screen},  {\em r},  {\em c},  {\em w},  {\em h})}\label{classCell_1_1Cell_b3d0d40e05e9e72b09b3a5fa53349311}
+
+
+unlock number behavior 
+
+when click on the cell, the matching picture should display base on the preset, from blank to eight. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em r}]row position \item[{\em c}]column position \item[{\em w}]width of the cell \item[{\em h}]height of the cell \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+Cell.py\end{CompactItemize}
