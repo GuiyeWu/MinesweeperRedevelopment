@@ -1,0 +1,684 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+\renewcommand\baselinestretch{1.0}
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+
+\usepackage{fullpage}
+\usepackage[round]{natbib}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+
+\newcounter{acnum}
+\newcommand{\actheacnum}{AC\theacnum}
+\newcommand{\acref}[1]{AC\ref{#1}}
+
+\newcounter{ucnum}
+\newcommand{\uctheucnum}{UC\theucnum}
+\newcommand{\uref}[1]{UC\ref{#1}}
+
+\newcounter{mnum}
+\newcommand{\mthemnum}{M\themnum}
+\newcommand{\mref}[1]{M\ref{#1}}
+
+\title{MIS}
+
+\author{Team 3\\
+        Shuying Chen, 400080161\\
+        Ziyang Huang, 400051063\\
+        Guiye Wu, 400089784
+}
+\date{Nov 8 2018}
+\begin{document}
+
+\maketitle
+\newpage
+
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+\newpage
+
+\pagenumbering{arabic}
+\section{Major Revision History} 
+\begin{table}[h!]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+08/11/2018& 0.3 & Revision 0 complete\\
+08/11/2018& 0.2 & Refined section\\
+07/11/2018 & 0.1 & Draft of Sections\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Module Hierrchy}
+\begin{table}[!htbp]
+        \begin{tabular}{ll}
+        \toprule
+        Level 1 & Level 2 \\
+        \midrule
+        Hardware Hiding Module & \\
+         \midrule
+        Behaviour Hiding Module & Minesweeper Module \\
+        & Board Module\\
+        &Animation Module\\
+        &Timer Module\\
+		 \midrule
+        Software Decision Module & Cell Module\\
+        \bottomrule
+        \end{tabular}
+        \caption{Module Hierarchy}
+        \label{Table 1}
+        \end{table}
+\newpage
+\section {Cell ADT Module}
+
+\subsection{Module}
+
+Cell
+
+\subsection {Uses}
+
+Pygame
+
+\subsection {Syntax}
+
+
+\subsubsection {Exported Types}
+
+Cell = ?
+
+\subsubsection {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+Cell & $\mathbb{B}$, $\mathbb{Z}$, $\mathbb{Z}$& PointT & invalid\_argument\\
+\hline
+unlock & $\mathbb{T}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+flag & $\mathbb{T}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+unflag & $\mathbb{T}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+clickExplode & $\mathbb{T}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$,$\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+isBomb & ~ & $\mathbb{B}$ & ~\\
+\hline
+isUnlocked & ~ & $\mathbb{B}$ & ~\\
+\hline
+isFlagged & ~ & $\mathbb{B}$ & ~\\
+\hline
+getRow & ~ & $\mathbb{Z}$ & ~\\
+\hline
+getCol & ~ & $\mathbb{Z}$ & ~\\
+\hline
+setNumBombNeighbors & $\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+setIsUnlocked & $\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+getNumBombNeighbors & ~ & $\mathbb{Z}$ & ~\\
+\hline
+\end{tabular}
+
+\subsection {Semantics}
+
+\subsubsection {State Variables}
+
+$unlocked$: $\mathbb{B}$ (A boolean variable which checks if a cell is locked or unlocked)\\
+$flagged$: $\mathbb{B}$ (A boolean variable which checks if a is set flag or not set flag)\\
+$isB$: $\mathbb{B}$ (A boolean variable which checks if a cell has bomb or not)\\
+$r$: $\mathbb{Z}$ (cell position in row)\\
+$c$: $\mathbb{Z}$ (cell position in column)\\
+$nBN$: $\mathbb{Z}$ (A value represents the number of bombs around the cell)
+
+\subsubsection {Environment Variables}
+$screen$: An output frame from Pygame
+
+\subsubsection {State Invariant}
+
+$0 \leq nBN \leq 8$
+
+\subsubsection {Assumptions}
+
+The constructor Cell is called for each object instance before any other
+access routine is called for that object.  The constructor cannot be called on
+an existing object.
+
+\subsubsection {Access Routine Semantics}
+
+Cell($isBomb, row, col$):
+\begin{itemize}
+\item transition: $unlocked, flagged, isB, r, c, nBN := false, false, isBomb, row, col, 0$
+\item output: $out := \mathit{self}$
+\item exception: $(r<0 \lor c<0) \Rightarrow $ invalid\_argument
+\end{itemize}
+
+\noindent unlock(screen,r,c,w,h):
+\begin{itemize}
+\item transition: $unlocked := true$\\
+$(\forall num \in 0..8 \bullet (nBN = num) \Rightarrow Pygame.screen.blit(scale(num,(w,h)),(c*w,r*h))$
+\item output: None
+\item exception:$(r<0 \lor c<0 \lor w<0 \lor h<0) \Rightarrow $ invalid\_argument
+\end{itemize}
+
+\noindent flag(screen,r,c,w,h):
+\begin{itemize}
+\item transition: $flagged := true$\\
+$flg := image.load("flag")$\\
+$Pygame.screen.blit(scale(flg,(w,h)),(c*w,r*h))$
+\item output: None
+\item exception: $(r<0 \lor c<0 \lor w<0 \lor h<0) \Rightarrow $ invalid\_argument
+\end{itemize}
+
+\noindent unflag(screen,r,c,w,h):
+\begin{itemize}
+\item transition: $flagged := false$\\
+$blanckcell := image.load("blanckcell")$\\
+$Pygame.screen.blit(scale(blanckcell,(w,h)),(c*w,r*h))$
+\item output: None
+\item exception: $(r<0 \lor c<0 \lor w<0 \lor h<0) \Rightarrow $ invalid\_argument
+\end{itemize}
+
+\noindent clickExplode(screen,r,c,w,h):
+\begin{itemize}
+\item transition: 
+$hitmine := image.load("hitmine")$\\
+$Pygame.screen.blit(scale(hitmine,(w,h)),(c*w,r*h))$
+\item output: None
+\item exception: $(r<0 \lor c<0 \lor w<0 \lor h<0) \Rightarrow $ invalid\_argument
+\end{itemize}
+
+\noindent isBomb():
+\begin{itemize}
+\item output: $out := isB$
+\item exception: None
+\end{itemize}
+
+\noindent isUnlocked():
+\begin{itemize}
+\item output: $out := unlocked$
+\item exception: None
+\end{itemize}
+
+\noindent isFlagged():
+\begin{itemize}
+\item output: $out := flagged$
+\item exception: None
+\end{itemize}
+
+\noindent getRow():
+\begin{itemize}
+\item output: $out := r$
+\item exception: None
+\end{itemize}
+
+\noindent getCol():
+\begin{itemize}
+\item output: $out := c$
+\item exception: None
+\end{itemize}
+
+\noindent setNumBombNeighbors(numBombNeighbors):
+\begin{itemize}
+\item transition: $nBN:=numBombNeighbors$
+\item output: None
+\item exception: $(numBombNeighbors > 8 \lor numBombNeighbors < 0) \Rightarrow$ invalid\_argument
+\end{itemize}
+
+\noindent setIsUnlocked(isUnlocked):
+\begin{itemize}
+\item transition: $unlocked:=isUnlocked$
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent getNumBombNeighbors():
+\begin{itemize}
+\item output: $out := nBN$
+\item exception: None
+\end{itemize}
+
+\newpage
+
+\section {Board ADT Module}
+
+\subsection{Template Module}
+
+Board
+
+\subsection {Uses}
+
+Cell,Pygame, timer, Animation
+
+\subsection {Syntax}
+
+\subsubsection {Exported Types}
+
+Board = ?
+
+\subsubsection {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+Board & $\mathbb{Z}$, $\mathbb{Z}$, $\mathbb{Z}$, $\mathbb{Z}$, $\mathbb{Z}$ & Board & invalid\_argument\\
+\hline
+refreshCells & ~ & ~ & ~\\
+\hline
+getNumBombNeighbors & $\mathbb{Z}$, $\mathbb{Z}$ & $\mathbb{Z}$ & invalid\_argument\\
+\hline
+rightClick & $\mathbb{Z}$, $\mathbb{Z}$ & screen & invalid\_argument\\
+\hline
+leftClick & $\mathbb{Z}$, $\mathbb{Z}$ & screen & invalid\_argument\\
+\hline
+unlockNeighbors & Cell & ~ & ~\\
+\hline
+isCell & $\mathbb{Z}$, $\mathbb{Z}$ &  $\mathbb{B}$  & ~\\
+\hline
+rightAndLeftClick & $\mathbb{Z}$, $\mathbb{Z}$ & screen & invalid\_argument\\
+\hline
+getNumFlagNeighbors & $\mathbb{Z}$, $\mathbb{Z}$ & $\mathbb{Z}$ & invalid\_argument\\
+\hline
+depressNeighbors & $\mathbb{Z}$, $\mathbb{Z}$ & ~ & invalid\_argument\\
+\hline
+winGame & ~ & screen & ~\\
+\hline
+looseGame & ~ & screen & ~\\
+\hline
+\end{tabular}
+
+\subsection {Semantics}
+
+\subsubsection {State Variables}
+
+$rs$: $\mathbb{Z}$ (number of rows)\\
+$cs$: $\mathbb{Z}$ (number of column)\\
+$w$: $\mathbb{Z}$ (width of a cell)\\
+$h$: $\mathbb{Z}$ (height of a cell)\\
+$nBS$: $\mathbb{Z}$ (number of bombs)\\
+$numCells$: $\mathbb{Z}$ (number of cells in total)\\
+$numCellsToUncover$: $\mathbb{Z}$ (number of cells that is not covered)\\
+$cells$: a list of $Cell$(a list of cells represent a board)\\
+$T$: $timer$ (timer function)
+
+\subsubsection {Environment Variables}
+
+$screen$: An output frame from Pygame\\
+$blanckcell$: A variable which stores a blanckcell image
+
+\subsubsection {State Invariant}
+
+None
+
+\subsubsection {Assumptions}
+
+The constructor Board is called for each object instance before any other
+access routine is called for that object.  The constructor cannot be called on
+an existing object.
+
+\subsubsection {Access Routine Semantics}
+
+Board($x, y$):
+\begin{itemize}
+\item transition: $rs, cs, w, h, nBs, numCells, numCellsToUncover, cells, T := rows, cols, width, height, $\\$numBombs, rows*cols,0,[\ ], timer()$
+\item output: $out := \mathit{self}$
+\item exception: $(rows < 0 \lor cols < 0 \lor width<0 \lor height<0) \Rightarrow$ invalid\_argument
+\end{itemize}
+
+\noindent refreshCells():
+\begin{itemize}
+\item transition: $numCellsToUncover := numCells - nBs$\\
+$List := []$\\
+$\forall i \in 0..numCells \bullet List\ ||<i>$\\
+$shuffle(List)$\\
+$\forall i \in 0..rs \bullet \forall j \in 0..cs \bullet cells\ ||<Cell(List[i+j]<nBs,i,j))>$\\
+$\forall x \in 0..rs \bullet \forall y \in 0..cs \bullet \neg cells[x][y].isBomb \Rightarrow$\\$ cells[x][y].setNumBombNeighbors(getNumBombNeighbors(x,y))$
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent getNumBombNeighbors(i,j):
+\begin{itemize}
+\item transition: $counter := 0$\\
+$\forall k \in -1..1 \bullet \forall m \in -1..1 \bullet (k\neq0 \land m \neq 0 \land cells[i+k][j+m].isBomb)\Rightarrow counter:=counter+1$
+\item output: $out := counter$
+\item exception: $(\neg (0\leq i\leq rs) \lor \neg (0\leq j\leq cs))\Rightarrow$ invalid\_argument
+\end{itemize}
+
+\noindent rightClick(r, c):
+\begin{itemize}
+\item transition: $(\neg cells[r][c].isUnlocked)\Rightarrow (cells[r][c].isFlagged \Rightarrow$\\$ cells[r][s].unflag(screen,cells[r][c].getRow,cells[r][c].getCol,w,h))$\\
+$(\neg cells[r][c].isUnlocked)\Rightarrow (\neg cells[r][c].isFlagged \Rightarrow$\\$ cells[r][s].flag(screen,cells[r][c].getRow,cells[r][c].getCol,w,h))$\\
+(right click on a cell to set a flag or unset a flag)
+\item output: $screen$
+\item exception: $(\neg (0\leq r\leq rs) \lor \neg (0\leq c\leq cs))\Rightarrow$ invalid\_argument
+\end{itemize}
+
+\noindent leftClick(r, c):
+\begin{itemize}
+\item transition: $((\neg cells[r][c].isFlagged \land \neg cells[r][c].isUnLocked)\Rightarrow cells[r][c].isBomb) \Rightarrow$\\$ cells[r][c].clickExplode(screen,cells[r][c].getRow,cells[r][c].getCol,w,h) \land looseGame())$\\
+$((\neg cells[r][c].isFlagged \land \neg cells[r][c].isUnLocked)\Rightarrow \neg cells[r][c].isBomb) \Rightarrow$\\$ cells[r][c].getNumBombNeighbors = 0 \Rightarrow unlockNeighbors \land numCellsToUncover:=numCellsToUncover-1)$\\
+$((\neg cells[r][c].isFlagged \land \neg cells[r][c].isUnLocked)\Rightarrow \neg cells[r][c].isBomb) \Rightarrow$\\$ numCellsToUncover =0 \Rightarrow winGame)$\\
+(left click on a cell to unlock the cell if it is a bomb, loose game, if it is a value, visualize the value, if it is a blanck cell, unlock neighbor cells )
+\item output: $screen$
+\item exception: $(\neg (0\leq r\leq rs) \lor \neg (0\leq c\leq cs))\Rightarrow$ invalid\_argument
+\end{itemize}
+
+\noindent unlockNeighbors(currentCell):
+\begin{itemize}
+\item transition: unlock the neighbors cells until al l the blanck cells are block by the value cells, using the BFS method.
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent isCell(col,row):
+\begin{itemize}
+\item transition: None
+\item output: $out:=0\leq row < rs \land 0 \leq col < cs$
+\item exception: None
+\end{itemize}
+
+\noindent rightAndLeftClick(r,c):
+\begin{itemize}
+\item transition: Left and right click on a value cell to unlock the neighbor cells
+\item output: $screen$
+\item exception: $out:=0\leq r < rs \land 0 \leq c < cs$
+\end{itemize}
+
+\noindent getNumFlagNeighbors(i,j):
+\begin{itemize}
+\item transition: Calculate number of neighbor flags from a cell with position (i,j)
+\item output: None
+\item exception: $out:=0\leq row < i \land 0 \leq j < cs$
+\end{itemize}
+
+\noindent depressNeighbors(i,j):
+\begin{itemize}
+\item transition: loose game if right and left click on a value cell (i,j) that unlock a bomb cell
+\item output: None
+\item exception: $out:=0\leq row < i \land 0 \leq j < cs$
+\end{itemize}
+
+\noindent winGame():
+\begin{itemize}
+\item transition: wining animation 
+\item output: $screen$
+\item exception: None
+\end{itemize}
+
+\noindent looseGame():
+\begin{itemize}
+\item transition: loosing animation 
+\item output: $screen$
+\item exception: None
+\end{itemize}
+
+\newpage
+
+\section {timer Module}
+
+\subsection{Module}
+
+timer
+
+\subsection {Uses}
+
+Pygame
+
+\subsection {Syntax}
+
+\subsubsection {Exported Types}
+
+timer = ?
+
+\subsubsection {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+timer & screen & screen & ~\\
+\hline
+\end{tabular}
+
+\subsection {Semantics}
+
+\subsubsection {Environment Variables}
+
+$screen$: An output frame from Pygame
+
+\subsubsection {State Invariant}
+
+None
+
+\subsubsection {Assumptions}
+
+None
+
+\subsubsection {Access Routine Semantics}
+
+timer(screen):
+\begin{itemize}
+\item transition: initialize a clock counting the time on the screen
+\item output: $out := screen$
+\item exception: None
+\end{itemize}
+
+
+\newpage
+
+\section {Animation Module}
+
+\subsection{Template Module}
+
+Animation
+
+\subsection {Uses}
+
+Pygame
+
+\subsection {Syntax}
+
+\subsubsection {Exported Types}
+
+Animation = ?
+
+\subsubsection {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+Animation & scrn & Animation & ~\\ 
+\hline
+win & ~ & screen & ~\\ 
+\hline
+loose & ~ & screen & ~\\
+\hline
+\end{tabular}
+
+\subsection {Semantics}
+
+\subsubsection {Environment Variables}
+
+$screen:$ An output frame from Pygame
+
+\subsubsection {State Invariant}
+
+None
+
+\subsubsection {Assumptions}
+
+The constructor Animation is called for each object instance before any other
+access routine is called for that object.  The constructor cannot be called on
+an existing object.
+
+\subsubsection {Access Routine Semantics}
+
+Animation(scrn):
+\begin{itemize}
+\item transition: $scrn = screen$
+\item output: $out := \mathit{self}$
+\item exception: None
+\end{itemize}
+
+\noindent win():
+\begin{itemize}
+\item transition: Animation of banana rain on the screen
+\item output: $out:=screen$
+\item exception: None
+\end{itemize}
+
+\noindent loose():
+\begin{itemize}
+\item transition: Animation of funny poopoo rain on the screen
+\item output: None
+\item exception: None
+\end{itemize}
+
+\newpage
+
+\section {Minesweeper Module}
+
+\subsection {Module}
+
+Minesweeper
+
+\subsection {Uses}
+
+Board
+
+\subsection {Syntax}
+
+\subsubsection {Exported Types}
+
+Minesweeper = ?
+
+\subsubsection {Exported Constants}
+
+None
+
+\subsubsection {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+Minesweeper & ~ & Minesweeper & ~\\
+\hline
+on\_init & ~ & screen & ~\\
+\hline
+on\_event & event & ~&\\
+\hline
+on\_cleanup & ~ & ~ & ~ \\
+\hline
+on\_execute & ~ & screen& \\
+\hline
+\end{tabular}
+
+\subsection {Semantics}
+
+\subsubsection {State Variables}
+
+$widthx$: $\mathbb{Z}$ (the width of the screen)\\
+$heightx$: $\mathbb{Z}$ (the height of the screen)\\
+$runningBackground$: $\mathbb{B}$ (check if background interface is running)\\
+$runningBoard$: $\mathbb{B}$ (check if the board is running)\\
+$ROWS$: $\mathbb{Z}$ (number of row cells)\\
+$COLS$: $\mathbb{Z}$ (number of column cells)\\
+$WIDTH$: $\mathbb{Z}$ (width of a cell)\\
+$HIGHT$: $\mathbb{Z}$ (height of a cell)\\
+$NUMBOMBS$: $\mathbb{Z}$ (number of bombs in the board)
+
+\subsubsection {Environment Variables}
+
+$screen$: An output frame from Pygame\\
+$setlevel$: A variable store the levels image\\
+$background$: A variable store the background image
+
+\subsubsection {State Invariant}
+
+None
+
+\subsubsection {Assumptions}
+The Minesweeper constructor is called for each object instance before any
+other access routine is called for that object.  The constructor can only be
+called once.
+
+
+\subsubsection {Access Routine Semantics}
+
+Minesweeper():
+\begin{itemize}
+\item transition: $widthx, heightx, runningBackground, runningBoard, ROWS, COLS,$\\$ NUMBOMBS, WIDTH, HIGHT := 860,640,true,true,16,30,0,20,20$
+\item output: $\mathit{out} := \mathit{self}$
+\item exception: None
+\end{itemize}
+
+\noindent on\_init():
+\begin{itemize}
+\item transition: initialize the levels chosen background, if any level region is clicked, runningBackground assign to false, then initialize the game with ROWS * COLS cells and NUMBOMBS bombs depend on the chosen level. The cell size is WIDTH * HIGHT
+\item output: $out:= screen$
+\item exception: None
+\end{itemize}
+
+\noindent on\_event(event):
+\begin{itemize}
+\item transition: check the event if it is left click right click or left and right click on the cell to make the corresponding event on the screen
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent on\_cleanup():
+\begin{itemize}
+\item transition: clean up screen and exit the game
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent on\_execute():
+\begin{itemize}
+\item transition: execute on\_event all the time until esc button is pressed or the exit icon is clicked on the screen
+\item output: $out := screen$
+\item exception: None
+\end{itemize}
+
+\end{document}
